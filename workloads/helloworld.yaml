@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-env
+  namespace: flux
+  labels:
+    app: helloworld-env
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.init: regex:^3.10.*
+    fluxcd.io/tag.podinfod: semver:~3.1
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: helloworld-env
+  template:
+    metadata:
+      labels:
+        app: helloworld-env
+    spec:
+      containers:
+        - name: helloworld-env
+          image: bithavoc/hello-world-env
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          env:
+            - name: MESSAGE
+              value: "Foobar"
+
+
+
