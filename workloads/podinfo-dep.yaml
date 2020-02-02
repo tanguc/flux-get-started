@@ -57,7 +57,7 @@ spec:
         - --random-error=false
         env:
         - name: PODINFO_UI_MESSAGE
-          value: "This is a test to see3"
+          value: "This is a test to see4"
         - name: PODINFO_UI_COLOR
           value: "#34577c"
         livenessProbe:
