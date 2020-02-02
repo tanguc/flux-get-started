@@ -57,7 +57,7 @@ spec:
         - --random-error=false
         env:
         - name: PODINFO_UI_MESSAGE
-          value: "Welcome to Flux2"
+          value: "This is a test to see"
         - name: PODINFO_UI_COLOR
           value: "#34577c"
         livenessProbe:
